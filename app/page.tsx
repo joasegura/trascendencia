@@ -1,0 +1,27 @@
+import { Header } from "@/components/header"
+import { Hero } from "@/components/hero"
+import { BrandCarousel } from "@/components/brand-carousel"
+import { NewArrivals } from "@/components/new-arrivals"
+import { FeaturedProducts } from "@/components/featured-products"
+import { OurStory } from "@/components/our-story"
+import { CategoryGrid } from "@/components/category-grid"
+import { Newsletter } from "@/components/newsletter"
+import { Footer } from "@/components/footer"
+
+export default function Home() {
+  return (
+    <div className="min-h-screen">
+      <Header />
+      <main>
+        <Hero />
+        <BrandCarousel />
+        <NewArrivals />
+        <FeaturedProducts />
+        <OurStory />
+        <CategoryGrid />
+        <Newsletter />
+      </main>
+      <Footer />
+    </div>
+  )
+}

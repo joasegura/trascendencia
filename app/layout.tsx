@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter, Playfair_Display } from "next/font/google"
+import { Inter, Playfair_Display, Bodoni_Moda } from "next/font/google"
 import "./globals.css"
 import { CartProvider } from "@/contexts/cart-context"
 import { Toaster } from "@/components/ui/toaster"
@@ -15,6 +15,11 @@ const playfair = Playfair_Display({
   variable: "--font-serif",
 })
 
+const bodoni = Bodoni_Moda({
+  subsets: ["latin"],
+  variable: "--font-display",
+})
+
 export const metadata: Metadata = {
   title: "Trascendencia - Joyería Elegante",
   description: "Descubre piezas únicas que trascienden el tiempo",
@@ -27,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="es" className={`${inter.variable} ${playfair.variable} ${bodoni.variable}`}>
       <body className="font-sans antialiased">
         <CartProvider>
           {children}

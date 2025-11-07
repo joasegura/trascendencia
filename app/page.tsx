@@ -7,6 +7,7 @@ import { OurStory } from "@/components/our-story"
 import { CategoryGrid } from "@/components/category-grid"
 import { Newsletter } from "@/components/newsletter"
 import { Footer } from "@/components/footer"
+import { ContactSection } from "@/components/contact-section"
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
         <FeaturedProducts />
         <OurStory />
         <CategoryGrid />
+        <ContactSection />
         <Newsletter />
       </main>
       <Footer />

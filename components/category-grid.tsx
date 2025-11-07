@@ -26,7 +26,7 @@ export function CategoryGrid() {
     <section className="py-16 lg:py-24 bg-muted">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 lg:mb-16">
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl mb-4 text-balance">Explora por Categoría</h2>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl mb-4 text-balance">Explora por Categoría</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto text-pretty">
             Encuentra la pieza perfecta para cada ocasión
           </p>

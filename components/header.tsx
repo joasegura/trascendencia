@@ -1,8 +1,9 @@
 "use client"
 
-import { ShoppingBag, Search, Menu, X } from "lucide-react"
+import { ShoppingBag, Menu, X } from "lucide-react"
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { useCart } from "@/contexts/cart-context"
 
@@ -15,8 +16,15 @@ export function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link href="/" className="flex-shrink-0">
-            <h1 className="font-serif text-2xl lg:text-3xl tracking-tight text-foreground">Trascendencia</h1>
+          <Link href="/" className="flex-shrink-0 flex items-center" aria-label="Trascendencia">
+            <Image
+              src="/logoTDCnegro.png"
+              alt="Trascendencia tienda de diseño"
+              width={168}
+              height={36}
+              priority
+              className="h-12 w-auto object-contain lg:h-16"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -37,10 +45,6 @@ export function Header() {
 
           {/* Actions */}
           <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon" className="hidden sm:flex">
-              <Search className="h-5 w-5" />
-              <span className="sr-only">Buscar</span>
-            </Button>
             <Link href="/carrito">
               <Button variant="ghost" size="icon" className="relative">
                 <ShoppingBag className="h-5 w-5" />

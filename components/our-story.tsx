@@ -1,10 +1,10 @@
 export function OurStory() {
   return (
-    <section id="nuestra-historia" className="py-12 md:py-16 lg:py-24 px-4 sm:px-6 bg-background">
+    <section id="nosotros" className="py-12 md:py-16 lg:py-24 px-4 sm:px-6 bg-background">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
           <div className="space-y-4 md:space-y-6">
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-foreground">Nuestra Historia</h2>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-foreground">Nuestra Historia</h2>
             <div className="space-y-3 md:space-y-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
               <p>
                 Trascendencia nace de la pasión por crear piezas que van más allá de lo material. Cada joya cuenta una

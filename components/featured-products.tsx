@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { ProductCard } from "@/components/product-card"
 
 const products = [
@@ -36,7 +37,7 @@ export function FeaturedProducts() {
     <section className="py-12 md:py-16 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 md:mb-12 lg:mb-16">
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 md:mb-4 text-balance">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 md:mb-4 text-balance">
             Colección Destacada
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto text-pretty">
@@ -51,12 +52,12 @@ export function FeaturedProducts() {
         </div>
 
         <div className="text-center mt-8 md:mt-12">
-          <a
-            href="#"
+          <Link
+            href="/productos"
             className="inline-block text-xs sm:text-sm tracking-wide border-b-2 border-primary pb-1 hover:border-secondary transition-colors"
           >
             VER TODA LA COLECCIÓN
-          </a>
+          </Link>
         </div>
       </div>
     </section>

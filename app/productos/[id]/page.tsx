@@ -11,8 +11,14 @@ export function generateStaticParams() {
   }))
 }
 
-export default function ProductPage({ params }: { params: { id: string } }) {
-  const product = getProductById(params.id)
+export default async function ProductPage({ 
+  params 
+}: { 
+  params: Promise<{ id: string }> | { id: string } 
+}) {
+  // En Next.js 16, params puede ser una Promise, así que lo resolvemos
+  const resolvedParams = await Promise.resolve(params)
+  const product = getProductById(resolvedParams.id)
 
   if (!product) {
     notFound()

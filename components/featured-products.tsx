@@ -1,36 +1,9 @@
 import Link from "next/link"
 import { ProductCard } from "@/components/product-card"
+import { products } from "@/lib/products"
 
-const products = [
-  {
-    id: 1,
-    name: "Anillo Eternidad",
-    price: 2850,
-    image: "/elegant-gold-ring-minimalist.jpg",
-    category: "Anillos",
-  },
-  {
-    id: 2,
-    name: "Collar Luna",
-    price: 3200,
-    image: "/elegant-necklace-pendant-minimalist.jpg",
-    category: "Collares",
-  },
-  {
-    id: 3,
-    name: "Aretes Celestial",
-    price: 2400,
-    image: "/elegant-earrings-minimalist.jpg",
-    category: "Aretes",
-  },
-  {
-    id: 4,
-    name: "Pulsera Infinito",
-    price: 1950,
-    image: "/elegant-bracelet-minimalist.jpg",
-    category: "Pulseras",
-  },
-]
+// Seleccionar productos destacados de los productos reales
+const featuredProducts = products.slice(0, 4)
 
 export function FeaturedProducts() {
   return (
@@ -46,7 +19,7 @@ export function FeaturedProducts() {
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
-          {products.map((product) => (
+          {featuredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>

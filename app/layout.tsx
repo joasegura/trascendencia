@@ -4,6 +4,7 @@ import { Inter, Playfair_Display, Bodoni_Moda } from "next/font/google"
 import "./globals.css"
 import { CartProvider } from "@/contexts/cart-context"
 import { Toaster } from "@/components/ui/toaster"
+import { LoadingScreen } from "@/components/loading-screen"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -34,6 +35,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${inter.variable} ${playfair.variable} ${bodoni.variable}`}>
       <body className="font-sans antialiased">
+        <LoadingScreen />
         <CartProvider>
           {children}
           <Toaster />

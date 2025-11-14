@@ -3,49 +3,13 @@
 import Link from "next/link"
 import { ProductCard } from "./product-card"
 import { Button } from "./ui/button"
+import { products } from "@/lib/products"
 
-const newProducts = [
-  {
-    id: "n-1",
-    name: "Collar Luna Creciente",
-    price: 189,
-    image: "/minimalist-crescent-moon-gold-necklace-on-white-ba.jpg",
-    isNew: true,
-    category: "Collares",
-    description: "Collar bañado en oro con dije lunar diseñado para acompañarte siempre.",
-    inStock: true,
-  },
-  {
-    id: "n-2",
-    name: "Anillo Constelación",
-    price: 245,
-    image: "/delicate-constellation-ring-with-tiny-diamonds-on-.jpg",
-    isNew: true,
-    category: "Anillos",
-    description: "Anillo con micropavé que evoca la magia de las estrellas.",
-    inStock: true,
-  },
-  {
-    id: "n-3",
-    name: "Aretes Esencia",
-    price: 165,
-    image: "/elegant-minimalist-gold-drop-earrings-on-white-bac.jpg",
-    isNew: true,
-    category: "Aretes",
-    description: "Aretes de caída sutil que aportan brillo a tu día.",
-    inStock: true,
-  },
-  {
-    id: "n-4",
-    name: "Brazalete Infinito",
-    price: 210,
-    image: "/sleek-infinity-symbol-bracelet-in-gold-on-white-ba.jpg",
-    isNew: true,
-    category: "Pulseras",
-    description: "Brazalete símbolo de lazos eternos en un diseño minimalista.",
-    inStock: true,
-  },
-]
+// Seleccionar productos nuevos de los productos reales
+const newProducts = products.slice(0, 4).map((product) => ({
+  ...product,
+  isNew: true,
+}))
 
 export function NewArrivals() {
   return (

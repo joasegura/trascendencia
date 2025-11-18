@@ -11,20 +11,24 @@ const categories = {
   pulseras: { name: "Pulseras", description: "Elegancia en cada movimiento" },
 }
 
+export const dynamicParams = false
+
 export function generateStaticParams() {
   return Object.keys(categories).map((category) => ({
     category,
   }))
 }
 
-export default function CategoryPage({ params }: { params: { category: string } }) {
-  const categoryInfo = categories[params.category as keyof typeof categories]
+export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
+  const { category } = await params
+  const categoryKey = category as keyof typeof categories
+  const categoryInfo = categories[categoryKey]
 
   if (!categoryInfo) {
     notFound()
   }
 
-  const products = getProductsByCategory(params.category)
+  const products = getProductsByCategory(categoryKey)
 
   return (
     <div className="min-h-screen">

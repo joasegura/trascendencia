@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Inter, Playfair_Display, Bodoni_Moda } from "next/font/google"
 import "./globals.css"
 import { CartProvider } from "@/contexts/cart-context"
+import { FavoritesProvider } from "@/contexts/favorites-context"
 import { Toaster } from "@/components/ui/toaster"
 import { LoadingScreen } from "@/components/loading-screen"
 
@@ -37,8 +38,10 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <LoadingScreen />
         <CartProvider>
-          {children}
-          <Toaster />
+          <FavoritesProvider>
+            {children}
+            <Toaster />
+          </FavoritesProvider>
         </CartProvider>
       </body>
     </html>

@@ -1,15 +1,17 @@
 "use client"
 
-import { ShoppingBag, Menu, X } from "lucide-react"
+import { ShoppingBag, Menu, X, Heart } from "lucide-react"
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { useCart } from "@/contexts/cart-context"
+import { useFavorites } from "@/contexts/favorites-context"
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { itemCount } = useCart()
+  const { favoritesCount } = useFavorites()
 
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
@@ -45,6 +47,17 @@ export function Header() {
 
           {/* Actions */}
           <div className="flex items-center gap-4">
+            <Button variant="ghost" size="icon" className="relative" asChild>
+              <Link href="/favoritos">
+                <Heart className="h-5 w-5" />
+                {favoritesCount > 0 && (
+                  <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-primary text-primary-foreground text-xs flex items-center justify-center">
+                    {favoritesCount}
+                  </span>
+                )}
+                <span className="sr-only">Favoritos</span>
+              </Link>
+            </Button>
             <Link href="/carrito">
               <Button variant="ghost" size="icon" className="relative">
                 <ShoppingBag className="h-5 w-5" />

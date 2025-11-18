@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import { useCart } from "@/contexts/cart-context"
 import { Button } from "@/components/ui/button"
@@ -30,8 +30,13 @@ export function CheckoutForm() {
     router.push("/confirmacion")
   }
 
+  useEffect(() => {
+    if (items.length === 0) {
+      router.replace("/carrito")
+    }
+  }, [items.length, router])
+
   if (items.length === 0) {
-    router.push("/carrito")
     return null
   }
 

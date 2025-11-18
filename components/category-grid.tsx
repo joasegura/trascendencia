@@ -35,7 +35,7 @@ export function CategoryGrid() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {categories.map((category) => (
             <Link
-              key={category.name}
+              key={category.id}
               href={`/categorias/${category.id}`}
               className="group relative aspect-[3/4] overflow-hidden bg-card"
             >

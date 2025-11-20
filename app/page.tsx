@@ -1,6 +1,5 @@
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
-import { BrandCarousel } from "@/components/brand-carousel"
 import { NewArrivals } from "@/components/new-arrivals"
 import { FeaturedProducts } from "@/components/featured-products"
 import { OurStory } from "@/components/our-story"
@@ -15,7 +14,6 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <BrandCarousel />
         <NewArrivals />
         <FeaturedProducts />
         <OurStory />

@@ -94,25 +94,6 @@ export function ProductDetail({ product }: ProductDetailProps) {
               </p>
             </div>
 
-            <div className="space-y-4 md:space-y-6">
-              <Button
-                size="lg"
-                className="w-full sm:w-auto px-8 md:px-12 text-xs sm:text-sm tracking-wide"
-                onClick={handleAddToCart}
-                disabled={!product.inStock}
-              >
-                <ShoppingBag className="w-4 h-4 md:w-5 md:h-5 mr-2" />
-                {product.inStock ? "Agregar al Carrito" : "No Disponible"}
-              </Button>
-
-              {product.inStock && (
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Check className="w-4 h-4 text-green-600 flex-shrink-0" />
-                  <span>En stock - Envío inmediato</span>
-                </div>
-              )}
-            </div>
-
             {/* Product Details */}
             <div className="space-y-4 pt-6 border-t border-border">
               <h3 className="text-xs sm:text-sm tracking-widest uppercase text-foreground mb-4">
@@ -134,6 +115,25 @@ export function ProductDetail({ product }: ProductDetailProps) {
                   <span>${product.price.toFixed(2)}</span>
                 </div>
               </div>
+            </div>
+
+            <div className="space-y-4 md:space-y-6 pt-6 border-t border-border">
+              <Button
+                size="lg"
+                className="w-full sm:w-auto px-8 md:px-12 text-xs sm:text-sm tracking-wide"
+                onClick={handleAddToCart}
+                disabled={!product.inStock}
+              >
+                <ShoppingBag className="w-4 h-4 md:w-5 md:h-5 mr-2" />
+                {product.inStock ? "Agregar al Carrito" : "No Disponible"}
+              </Button>
+
+              {product.inStock && (
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Check className="w-4 h-4 text-green-600 flex-shrink-0" />
+                  <span>En stock - Envío inmediato</span>
+                </div>
+              )}
             </div>
 
             {/* Shipping Info */}

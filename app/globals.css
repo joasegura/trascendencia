@@ -125,3 +125,33 @@
 .font-display {
   font-family: var(--font-display), var(--font-serif), var(--font-sans);
 }
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: 200%;
+  min-width: 100%;
+  animation: marquee-scroll 28s linear infinite;
+  line-height: 1;
+}
+
+.marquee-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.35rem 0.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}

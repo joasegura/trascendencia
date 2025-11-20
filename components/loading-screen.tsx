@@ -11,7 +11,7 @@ export function LoadingScreen() {
     setIsMounted(true)
 
     let startTime = Date.now()
-    const minDisplayTime = 800 // Tiempo mínimo de visualización en ms
+    const minDisplayTime = 1000 // Tiempo mínimo de visualización en ms
 
     // Función para ocultar el loading
     const hideLoading = () => {

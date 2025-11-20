@@ -32,7 +32,7 @@ export function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             <Link href="/productos" className="text-sm tracking-wide hover:text-secondary transition-colors">
-              TIENDA
+              NEW IN!
             </Link>
             <Link href="/categorias" className="text-sm tracking-wide hover:text-secondary transition-colors">
               COLECCIONES

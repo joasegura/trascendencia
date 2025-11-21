@@ -14,6 +14,8 @@ interface ProductDetailProps {
 
 export function ProductDetail({ product }: ProductDetailProps) {
   const [imageError, setImageError] = useState(false)
+  const [selectedSize, setSelectedSize] = useState<string | null>(null)
+  const [selectedColor, setSelectedColor] = useState<string | null>(null)
   const { addToCart } = useCart()
   const { toast } = useToast()
 
@@ -24,6 +26,31 @@ export function ProductDetail({ product }: ProductDetailProps) {
       description: `${product.name} ha sido agregado a tu carrito`,
     })
   }
+
+  // Helper function to convert color string to CSS value
+  const getColorValue = (color: string): string => {
+    // If it's already a hex color, return it
+    if (color.startsWith("#")) {
+      return color
+    }
+    // Map common color names to hex values
+    const colorMap: Record<string, string> = {
+      oro: "#D4AF37",
+      gold: "#D4AF37",
+      plata: "#C0C0C0",
+      silver: "#C0C0C0",
+      rose: "#E8B4B8",
+      rosa: "#E8B4B8",
+      blanco: "#FFFFFF",
+      white: "#FFFFFF",
+      negro: "#000000",
+      black: "#000000",
+    }
+    return colorMap[color.toLowerCase()] || color
+  }
+
+  const availableSizes = product.sizes || ["S", "M", "L", "XL"]
+  const availableColors = product.colors || []
 
   const imageSrc = imageError ? "/placeholder.svg" : (product.image || "/placeholder.svg")
 
@@ -93,6 +120,62 @@ export function ProductDetail({ product }: ProductDetailProps) {
                 {product.description}
               </p>
             </div>
+
+            {/* Size and Color Selection */}
+            {(availableSizes.length > 0 || availableColors.length > 0) && (
+              <div className="space-y-4 pt-6 border-t border-border">
+                {/* Size Selection */}
+                {availableSizes.length > 0 && (
+                  <div className="space-y-2">
+                    <h3 className="text-xs sm:text-sm tracking-widest uppercase text-foreground">
+                      Talla
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {availableSizes.map((size) => (
+                        <button
+                          key={size}
+                          onClick={() => setSelectedSize(size)}
+                          className={`px-2.5 py-1.5 text-[10px] sm:text-xs font-medium tracking-wide border transition-all ${
+                            selectedSize === size
+                              ? "bg-foreground text-background border-foreground"
+                              : "bg-background text-foreground border-border hover:border-foreground/50"
+                          }`}
+                        >
+                          {size}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Color Selection */}
+                {availableColors.length > 0 && (
+                  <div className="space-y-2">
+                    <h3 className="text-xs sm:text-sm tracking-widest uppercase text-foreground">
+                      Color
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {availableColors.map((color, index) => {
+                        const colorValue = getColorValue(color)
+                        return (
+                          <button
+                            key={`${color}-${index}`}
+                            onClick={() => setSelectedColor(color)}
+                            className={`w-8 h-8 sm:w-9 sm:h-9 rounded-sm border-2 transition-all ${
+                              selectedColor === color
+                                ? "border-foreground scale-110"
+                                : "border-border hover:border-foreground/50"
+                            }`}
+                            style={{ backgroundColor: colorValue }}
+                            aria-label={`Color ${color}`}
+                          />
+                        )
+                      })}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
 
             {/* Product Details */}
             <div className="space-y-4 pt-6 border-t border-border">

@@ -10,6 +10,8 @@ export const products: Product[] = [
     description:
       "Elegante collar con diseño de luna creciente en oro de 14k. Una pieza minimalista que captura la esencia celestial.",
     inStock: true,
+    sizes: ["S", "M", "L", "XL"],
+    colors: ["#D4AF37", "#C0C0C0", "#FFD700"],
   },
   {
     id: "2",
@@ -20,6 +22,8 @@ export const products: Product[] = [
     description:
       "Anillo delicado con pequeños diamantes que forman una constelación única. Perfecto para quienes aman el cosmos.",
     inStock: true,
+    sizes: ["S", "M", "L", "XL"],
+    colors: ["#D4AF37", "#C0C0C0", "#FFD700"],
   },
   {
     id: "3",
@@ -29,6 +33,8 @@ export const products: Product[] = [
     category: "aretes",
     description: "Aretes de gota en oro con diseño minimalista. Elegancia atemporal para cualquier ocasión.",
     inStock: true,
+    sizes: ["S", "M", "L", "XL"],
+    colors: ["#D4AF37", "#C0C0C0", "#FFD700"],
   },
   {
     id: "4",
@@ -39,6 +45,8 @@ export const products: Product[] = [
     description:
       "Pulsera con símbolo de infinito en oro. Representa el amor eterno y las conexiones que trascienden el tiempo.",
     inStock: true,
+    sizes: ["S", "M", "L", "XL"],
+    colors: ["#D4AF37", "#C0C0C0", "#FFD700"],
   },
   {
     id: "5",
@@ -48,6 +56,8 @@ export const products: Product[] = [
     category: "collares",
     description: "Collar con estrella polar en oro blanco. Guía tu camino con esta pieza celestial.",
     inStock: true,
+    sizes: ["S", "M", "L", "XL"],
+    colors: ["#D4AF37", "#C0C0C0", "#FFD700"],
   },
   {
     id: "6",
@@ -57,6 +67,8 @@ export const products: Product[] = [
     category: "anillos",
     description: "Anillo solitario con diamante de corte brillante. Clásico y elegante para momentos especiales.",
     inStock: true,
+    sizes: ["S", "M", "L", "XL"],
+    colors: ["#D4AF37", "#C0C0C0", "#FFD700"],
   },
   {
     id: "7",
@@ -66,6 +78,8 @@ export const products: Product[] = [
     category: "aretes",
     description: "Aretes de perla cultivada con montura en oro. Sofisticación natural.",
     inStock: true,
+    sizes: ["S", "M", "L", "XL"],
+    colors: ["#D4AF37", "#C0C0C0", "#FFD700"],
   },
   {
     id: "8",
@@ -75,6 +89,8 @@ export const products: Product[] = [
     category: "pulseras",
     description: "Pulsera de cadena delicada en oro. Perfecta para combinar con otras piezas.",
     inStock: true,
+    sizes: ["S", "M", "L", "XL"],
+    colors: ["#D4AF37", "#C0C0C0", "#FFD700"],
   },
 ]
 

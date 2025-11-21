@@ -21,15 +21,27 @@ export function CartProvider({ children }: { children: ReactNode }) {
     localStorage.setItem("trascendencia-cart", JSON.stringify(items))
   }, [items])
 
-  const addToCart = (product: Product) => {
+  const addToCart = (product: Product, selectedSize?: string | null, selectedColor?: string | null) => {
     setItems((currentItems) => {
-      const existingItem = currentItems.find((item) => item.id === product.id)
+      // Check if item with same id, size, and color already exists
+      const existingItem = currentItems.find(
+        (item) =>
+          item.id === product.id &&
+          item.selectedSize === selectedSize &&
+          item.selectedColor === selectedColor
+      )
 
       if (existingItem) {
-        return currentItems.map((item) => (item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item))
+        return currentItems.map((item) =>
+          item.id === product.id &&
+          item.selectedSize === selectedSize &&
+          item.selectedColor === selectedColor
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        )
       }
 
-      return [...currentItems, { ...product, quantity: 1 }]
+      return [...currentItems, { ...product, quantity: 1, selectedSize, selectedColor }]
     })
   }
 

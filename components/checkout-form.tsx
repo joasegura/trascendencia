@@ -11,6 +11,26 @@ import { Label } from "@/components/ui/label"
 import { CreditCard, Lock } from "lucide-react"
 import Image from "next/image"
 
+// Helper function to convert color string to CSS value
+const getColorValue = (color: string): string => {
+  if (color.startsWith("#")) {
+    return color
+  }
+  const colorMap: Record<string, string> = {
+    oro: "#D4AF37",
+    gold: "#D4AF37",
+    plata: "#C0C0C0",
+    silver: "#C0C0C0",
+    rose: "#E8B4B8",
+    rosa: "#E8B4B8",
+    blanco: "#FFFFFF",
+    white: "#FFFFFF",
+    negro: "#000000",
+    black: "#000000",
+  }
+  return colorMap[color.toLowerCase()] || color
+}
+
 export function CheckoutForm() {
   const router = useRouter()
   const { items, total, clearCart } = useCart()
@@ -130,6 +150,24 @@ export function CheckoutForm() {
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium truncate">{item.name}</p>
                     <p className="text-xs text-muted-foreground">Cantidad: {item.quantity}</p>
+                    {/* Size and Color Details */}
+                    <div className="flex flex-wrap items-center gap-2 mt-1">
+                      {item.selectedSize && (
+                        <span className="text-[10px] text-muted-foreground">
+                          Talla: <span className="font-medium">{item.selectedSize}</span>
+                        </span>
+                      )}
+                      {item.selectedColor && (
+                        <span className="flex items-center gap-1 text-[10px] text-muted-foreground">
+                          Color:
+                          <span
+                            className="w-3 h-3 rounded-sm border border-border"
+                            style={{ backgroundColor: getColorValue(item.selectedColor) }}
+                            aria-label={`Color ${item.selectedColor}`}
+                          />
+                        </span>
+                      )}
+                    </div>
                     <p className="text-sm font-medium mt-1">${(item.price * item.quantity).toFixed(2)}</p>
                   </div>
                 </div>

@@ -6,6 +6,26 @@ import { Minus, Plus, Trash2, ShoppingBag } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
+// Helper function to convert color string to CSS value
+const getColorValue = (color: string): string => {
+  if (color.startsWith("#")) {
+    return color
+  }
+  const colorMap: Record<string, string> = {
+    oro: "#D4AF37",
+    gold: "#D4AF37",
+    plata: "#C0C0C0",
+    silver: "#C0C0C0",
+    rose: "#E8B4B8",
+    rosa: "#E8B4B8",
+    blanco: "#FFFFFF",
+    white: "#FFFFFF",
+    negro: "#000000",
+    black: "#000000",
+  }
+  return colorMap[color.toLowerCase()] || color
+}
+
 export function CartContent() {
   const { items, removeFromCart, updateQuantity, total } = useCart()
 
@@ -37,7 +57,27 @@ export function CartContent() {
                 <Link href={`/productos/${item.id}`}>
                   <h3 className="font-serif text-xl mb-1 hover:text-muted-foreground transition-colors">{item.name}</h3>
                 </Link>
-                <p className="text-sm text-muted-foreground uppercase">{item.category}</p>
+                <p className="text-sm text-muted-foreground uppercase mb-2">{item.category}</p>
+                
+                {/* Size and Color Details */}
+                <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
+                  {item.selectedSize && (
+                    <span className="flex items-center gap-1.5">
+                      <span className="font-medium">Talla:</span>
+                      <span className="px-2 py-0.5 border border-border rounded">{item.selectedSize}</span>
+                    </span>
+                  )}
+                  {item.selectedColor && (
+                    <span className="flex items-center gap-1.5">
+                      <span className="font-medium">Color:</span>
+                      <span
+                        className="w-4 h-4 rounded-sm border border-border"
+                        style={{ backgroundColor: getColorValue(item.selectedColor) }}
+                        aria-label={`Color ${item.selectedColor}`}
+                      />
+                    </span>
+                  )}
+                </div>
               </div>
 
               <div className="flex items-center justify-between">

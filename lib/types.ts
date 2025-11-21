@@ -12,11 +12,13 @@ export interface Product {
 
 export interface CartItem extends Product {
   quantity: number
+  selectedSize?: string | null
+  selectedColor?: string | null
 }
 
 export interface CartContextType {
   items: CartItem[]
-  addToCart: (product: Product) => void
+  addToCart: (product: Product, selectedSize?: string | null, selectedColor?: string | null) => void
   removeFromCart: (productId: string) => void
   updateQuantity: (productId: string, quantity: number) => void
   clearCart: () => void

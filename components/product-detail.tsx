@@ -20,7 +20,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
   const { toast } = useToast()
 
   const handleAddToCart = () => {
-    addToCart(product)
+    addToCart(product, selectedSize, selectedColor)
     toast({
       title: "Agregado al carrito",
       description: `${product.name} ha sido agregado a tu carrito`,
